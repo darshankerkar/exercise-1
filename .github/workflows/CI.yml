@@ -13,4 +13,4 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build and start containers
-        run: docker compose up -d
+        run: docker run -d -p 2020:80 custom-nginx
