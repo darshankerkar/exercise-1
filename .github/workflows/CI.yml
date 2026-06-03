@@ -26,7 +26,7 @@ jobs:
         run: docker ps
 
       - name: Check Docker logs 
-        run: docker logs my-nginx
+        run: docker logs 8afaf9fca1ee
 
   deploy:
     needs: logs
