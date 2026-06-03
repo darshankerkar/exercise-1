@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,3 +16,23 @@ jobs:
 
       - name: Build and start containers
         run: docker run -d -p 2020:80 custom-nginx
+
+  logs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name : Check number of containers
+        run : docker ps
+
+      - name : Check Docker logs 
+        run : docker logs 
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name : Check curl deployment 
+        run : curl localhost:8090
+
